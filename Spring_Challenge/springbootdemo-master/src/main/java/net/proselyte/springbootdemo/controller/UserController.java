@@ -40,13 +40,13 @@ public class UserController {
     }
 
     @GetMapping("user-delete/{id}")
-    public String deleteUser(@PathVariable("id") Long id){
+    public String deleteUser(@PathVariable("id") Long id){ //id
         userService.deleteById(id);
         return "redirect:/users";
     }
 
     @GetMapping("/user-update/{id}")
-    public String updateUserForm(@PathVariable("id") Long id, Model model){
+    public String updateUserForm(@PathVariable("id") Long id, Model model){ //id
         User user = userService.findById(id);
         model.addAttribute("user", user);
         return "user-update";
