@@ -21,40 +21,40 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/users")
+    @GetMapping("/countries")
     public String findAll(Model model){
         List<User> users = userService.findAll();
-        model.addAttribute("users", users);
-        return "user-list";
+        model.addAttribute("countries", users);
+        return "country-list";
     }
 
-    @GetMapping("/user-create")
+    @GetMapping("/country-create")
     public String createUserForm(User user){
-        return "user-create";
+        return "country-create";
     }
 
-    @PostMapping("/user-create")
+    @PostMapping("/country-create")
     public String createUser(User user){
         userService.saveUser(user);
-        return "redirect:/users";
+        return "redirect:/countries";
     }
 
-    @GetMapping("user-delete/{id}")
+    @GetMapping("country-delete/{id}")
     public String deleteUser(@PathVariable("id") Long id){ //id
         userService.deleteById(id);
-        return "redirect:/users";
+        return "redirect:/countries";
     }
 
-    @GetMapping("/user-update/{id}")
+    @GetMapping("/country-update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model){ //id
         User user = userService.findById(id);
-        model.addAttribute("user", user);
-        return "user-update";
+        model.addAttribute("country", user);
+        return "country-update";
     }
 
-    @PostMapping("/user-update")
+    @PostMapping("/country-update")
     public String updateUser(User user){
         userService.saveUser(user);
-        return "redirect:/users";
+        return "redirect:/countries";
     }
 }

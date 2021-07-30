@@ -6,15 +6,12 @@
 <body>
 <form action="#" th:action="@{/country-update}" th:object="${country}" method="post">
     <label for="country_id">ID</label>
-    <input readonly type="number" th:field="*{countryId}" id="country_id" placeholder="Country Id">
-
+    <input readonly type="number" th:field="*{id}" id="country_id" placeholder="ID">
     <br/>
     <label for="country">Country</label>
     <input type="text" th:field="*{country}" id="country" placeholder="Country">
-
-
     <br/>
-    <input type="submit" value="Update Country">
+    <input type="submit" value="Update User">
 </form>
 </body>
 </html>
